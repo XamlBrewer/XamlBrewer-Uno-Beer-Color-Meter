@@ -1,0 +1,10 @@
+{
+	"profiles": {
+		"XamlBrewer_Uno_BeerColorMeter.Windows (Unpackaged)": {
+			"commandName": "Project"
+		},
+		"XamlBrewer_Uno_BeerColorMeter.Windows (Package)": {
+			"commandName": "MsixPackage"
+		}
+	}
+}
