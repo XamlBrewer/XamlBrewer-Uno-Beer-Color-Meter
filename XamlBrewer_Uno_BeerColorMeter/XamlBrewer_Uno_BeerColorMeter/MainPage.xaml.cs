@@ -129,10 +129,10 @@ public sealed partial class MainPage : Page
     private void DisplayResult(BeerColor closest)
     {
         ClosestBeerColor.Background = new SolidColorBrush(Color.FromArgb(255, closest.R, closest.G, closest.B));
-        ClosestBeerColorText.Text = $"SRM: {(int)closest.SRM}{Environment.NewLine}ECB: {(int)closest.ECB}{Environment.NewLine}{Environment.NewLine}{closest.ColorName}";
+        ClosestBeerColorText.Text = $"SRM: {(int)closest.SRM}{Environment.NewLine}EBC: {(int)closest.EBC}{Environment.NewLine}{Environment.NewLine}{closest.ColorName}";
         
         // Contrasting text color.
-        if (closest.ECB < 12)
+        if (closest.EBC < 12)
         {
             ClosestBeerColorText.Foreground = new SolidColorBrush(Colors.Maroon);
         }

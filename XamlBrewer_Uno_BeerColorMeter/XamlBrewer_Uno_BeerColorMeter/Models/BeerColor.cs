@@ -7,7 +7,7 @@ public class BeerColor
 {
     public double SRM { get; set; }
 
-    public double ECB
+    public double EBC
     {
         get
         {
