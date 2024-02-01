@@ -2,7 +2,7 @@
 
 (Work in progress ...)
 
-An Uno Platform app for WinUI 3 and Android that allows you to pick an image. It calculates the average color of its pixels, and looks up the nearest official beer color in Standard Reference Method (SRM) and European Brewery Convention (EBC) units.
+An Uno Platform app for Windows and Android that allows you to pick an image. It calculates the average color of its pixels, and looks up the nearest official beer color in Standard Reference Method (SRM) and European Brewery Convention (EBC) units.
 
 A port of <a href="https://github.com/XamlBrewer/XamlBrewer-WinUI3-Beer-Color-Meter" target="_blank">this WinUI 3 repo</a>.
 
