@@ -12,14 +12,11 @@ namespace XamlBrewer_Uno_BeerColorMeter;
 
 public sealed partial class MainPage : Page
 {
-    IBuffer? buffer;
     IRandomAccessStream? current;
 
     public MainPage()
     {
         InitializeComponent();
-
-        // TODO: populate the buffer with the FullImage source.
     }
 
     private async Task PickImage()
@@ -46,7 +43,7 @@ public sealed partial class MainPage : Page
     {
         if (file != null)
         {
-            buffer = await FileIO.ReadBufferAsync(file);
+            IBuffer buffer = await FileIO.ReadBufferAsync(file);
             current = buffer.AsStream().AsRandomAccessStream();
 
             FullImage.Source = new BitmapImage(new Uri(file.Path));
@@ -60,24 +57,9 @@ public sealed partial class MainPage : Page
 
     private async void CalculateButton_Click(object sender, RoutedEventArgs e)
     {
-        if (current == null)
-        {
-            // TODO: if populating the buffer in the contructor does not work, do it here.
-            return;
+        current ??= Properties.Resources.Beer.AsBuffer().AsStream().AsRandomAccessStream();
 
-            //var ss = File.Open("Beer.jpg", FileMode.Open, FileAccess.Read);
-            //current = ss.AsRandomAccessStream();
-            //FullImage.Source = new BitmapImage(new Uri("ms-appx:///Beer.jpg"));
-            //current = await RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Beer.jpg")).OpenReadAsync();
-
-            //var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Beer.jpg"));
-            //await OpenFile(file);
-
-            //buffer = await FileIO.ReadBufferAsync(file);
-            //current = buffer.AsStream().AsRandomAccessStream();
-        }
-
-        current?.Seek(0);
+        current.Seek(0);
         WriteableBitmap destination = new((int)(
             FullImage.ActualWidth > FullImage.ActualWidth ? FullImage.ActualWidth : FullImage.ActualWidth),
             (int)(FullImage.ActualHeight + FullImage.ActualHeight));
@@ -130,7 +112,7 @@ public sealed partial class MainPage : Page
     {
         ClosestBeerColor.Background = new SolidColorBrush(Color.FromArgb(255, closest.R, closest.G, closest.B));
         ClosestBeerColorText.Text = $"SRM: {(int)closest.SRM}{Environment.NewLine}EBC: {(int)closest.EBC}{Environment.NewLine}{Environment.NewLine}{closest.ColorName}";
-        
+
         // Contrasting text color.
         if (closest.EBC < 12)
         {
