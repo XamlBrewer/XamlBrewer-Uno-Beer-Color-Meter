@@ -71,6 +71,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Assets\UnoPlatformLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Update="Beer.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

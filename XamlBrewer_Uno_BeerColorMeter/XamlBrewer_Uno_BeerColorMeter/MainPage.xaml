@@ -101,7 +101,7 @@
              Width="142"
              Margin="8"
              Grid.RowSpan="5"
-             Grid.ColumnSpan="3">
+             Grid.ColumnSpan="4">
       <Canvas Height="80"
               Width="200"
               Background="Transparent">
@@ -138,5 +138,12 @@
         </Grid>
       </Canvas>
     </Viewbox>
+    <Image Source="/Assets/UnoPlatformLogo.png"
+           HorizontalAlignment="Right"
+           VerticalAlignment="Bottom"
+           Width="80"
+           Margin="8"
+           Grid.RowSpan="5"
+           Grid.ColumnSpan="4" />
   </Grid>
 </Page>
