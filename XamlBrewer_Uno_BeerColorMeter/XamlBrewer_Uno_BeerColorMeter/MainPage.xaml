@@ -50,20 +50,20 @@
             HorizontalAlignment="Stretch"
             HorizontalContentAlignment="Center"
             Margin="0 20"
-            Style="{StaticResource AccentButtonStyle}"
+            Background="SaddleBrown"
             Grid.Column="1" />
     <Image x:Name="FullImage"
            Source="Beer.jpg"
            VerticalAlignment="Stretch"
            HorizontalAlignment="Stretch"
            Grid.Row="1"
-           Grid.Column="1"/>
+           Grid.Column="1" />
     <Button Click="CalculateButton_Click"
             Content="Calculate"
             HorizontalAlignment="Stretch"
             HorizontalContentAlignment="Center"
             Margin="0 20"
-            Style="{StaticResource AccentButtonStyle}"
+            Background="SaddleBrown"
             Grid.Row="2"
             Grid.Column="1" />
 
