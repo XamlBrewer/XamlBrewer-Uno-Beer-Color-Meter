@@ -60,9 +60,9 @@ public sealed partial class MainPage : Page
         current ??= Properties.Resources.Beer.AsBuffer().AsStream().AsRandomAccessStream();
 
         current.Seek(0);
-        WriteableBitmap destination = new((int)(
-            FullImage.ActualWidth > FullImage.ActualWidth ? FullImage.ActualWidth : FullImage.ActualWidth),
-            (int)(FullImage.ActualHeight + FullImage.ActualHeight));
+        WriteableBitmap destination = new(
+            (int)FullImage.ActualWidth,
+            (int)FullImage.ActualHeight);
 
         destination.SetSource(current);
 
