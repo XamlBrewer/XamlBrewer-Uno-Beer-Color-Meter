@@ -72,7 +72,8 @@
           VerticalAlignment="Stretch"
           CornerRadius="8"
           Grid.Row="3"
-          Grid.Column="1">
+          Grid.Column="1"
+          Margin="0 0 0 25">
       <Border x:Name="ClosestBeerColor"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
@@ -124,7 +125,7 @@
         <Grid Width="200"
               Height="80">
           <TextBlock Foreground="SlateGray"
-                     FontSize="24"
+                     FontSize="20"
                      FontWeight="SemiBold"
                      VerticalAlignment="Bottom"
                      Padding="0"
