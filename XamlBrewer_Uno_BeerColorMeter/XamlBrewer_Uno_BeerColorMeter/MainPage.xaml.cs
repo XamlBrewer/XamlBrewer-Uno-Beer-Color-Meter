@@ -45,7 +45,6 @@ public sealed partial class MainPage : Page
         {
             IBuffer buffer = await FileIO.ReadBufferAsync(file);
             current = buffer.AsStream().AsRandomAccessStream();
-
             FullImage.Source = new BitmapImage(new Uri(file.Path));
         }
     }
@@ -57,12 +56,21 @@ public sealed partial class MainPage : Page
 
     private async void CalculateButton_Click(object sender, RoutedEventArgs e)
     {
+        WriteableBitmap destination;
+
         current ??= Properties.Resources.Beer.AsBuffer().AsStream().AsRandomAccessStream();
 
         current.Seek(0);
-        WriteableBitmap destination = new(
-            (int)FullImage.ActualWidth,
-            (int)FullImage.ActualHeight);
+        var bitmapImage = FullImage.Source as BitmapImage;
+        if (bitmapImage == null)
+        {
+            // The legendary 'should not happen'
+            destination = new WriteableBitmap((int)FullImage.ActualWidth, (int)FullImage.ActualHeight);
+        }
+        else
+        {
+            destination = new WriteableBitmap(bitmapImage.PixelWidth, bitmapImage.PixelHeight);
+        }
 
         destination.SetSource(current);
 
